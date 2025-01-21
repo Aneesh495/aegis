@@ -1,0 +1,36 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "aegis"
+version = "0.1.0"
+description = "Autonomous On-Chain Prime Brokerage, Dynamic Margin Risk Engine, Multi-Tranche Debt Waterfall, and MEV-Proof Batch Clearinghouse"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [
+    { name = "Aneesh Krishna", email = "aneeshkrishnaparthasarathy@gmail.com" },
+]
+dependencies = [
+    "vyper==0.4.3",
+    "titanoboa>=0.2.0",
+    "pytest>=8.0.0",
+    "hypothesis>=6.100.0",
+    "numpy>=1.26.0",
+    "scipy>=1.12.0",
+    "pandas>=2.2.0",
+    "rich>=13.7.0",
+    "pydantic>=2.6.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "-v --tb=short"
+
+[tool.uv]
+dev-dependencies = [
+    "black>=24.0.0",
+    "ruff>=0.3.0",
+]
