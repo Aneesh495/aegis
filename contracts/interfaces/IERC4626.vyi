@@ -1,0 +1,78 @@
+# @version ^0.4.0
+# Standard Tokenized Vault Interface (EIP-4626)
+
+@view
+@external
+def asset() -> address:
+    ...
+
+@view
+@external
+def totalAssets() -> uint256:
+    ...
+
+@view
+@external
+def convertToShares(assets: uint256) -> uint256:
+    ...
+
+@view
+@external
+def convertToAssets(shares: uint256) -> uint256:
+    ...
+
+@view
+@external
+def maxDeposit(receiver: address) -> uint256:
+    ...
+
+@view
+@external
+def previewDeposit(assets: uint256) -> uint256:
+    ...
+
+@external
+def deposit(assets: uint256, receiver: address) -> uint256:
+    ...
+
+@view
+@external
+def maxMint(receiver: address) -> uint256:
+    ...
+
+@view
+@external
+def previewMint(shares: uint256) -> uint256:
+    ...
+
+@external
+def mint(shares: uint256, receiver: address) -> uint256:
+    ...
+
+@view
+@external
+def maxWithdraw(owner: address) -> uint256:
+    ...
+
+@view
+@external
+def previewWithdraw(assets: uint256) -> uint256:
+    ...
+
+@external
+def withdraw(assets: uint256, receiver: address, owner: address) -> uint256:
+    ...
+
+@view
+@external
+def maxRedeem(owner: address) -> uint256:
+    ...
+
+@view
+@external
+def previewRedeem(shares: uint256) -> uint256:
+    ...
+
+@external
+def redeem(shares: uint256, receiver: address, owner: address) -> uint256:
+    ...
