@@ -1,0 +1,55 @@
+# @version ^0.4.0
+# Aegis Prime Multi-Asset Treasury Vault Interface
+
+@view
+@external
+def is_supported_asset(asset: address) -> bool:
+    ...
+
+@view
+@external
+def total_reserve(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def available_liquidity(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def protocol_fees(asset: address) -> uint256:
+    ...
+
+@external
+def deposit_collateral(asset: address, amount: uint256, on_behalf_of: address) -> uint256:
+    ...
+
+@external
+def withdraw_collateral(asset: address, amount: uint256, recipient: address) -> uint256:
+    ...
+
+@external
+def transfer_internal(asset: address, from_account: address, to_account: address, amount: uint256):
+    ...
+
+@external
+def allocate_credit(asset: address, amount: uint256, recipient: address):
+    ...
+
+@external
+def repay_credit(asset: address, amount: uint256, from_account: address):
+    ...
+
+@external
+def sweep_protocol_fees(asset: address, recipient: address) -> uint256:
+    ...
+
+@external
+def set_asset_status(asset: address, supported: bool, max_capacity: uint256):
+    ...
+
+@view
+@external
+def asset_capacity(asset: address) -> uint256:
+    ...
