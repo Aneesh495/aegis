@@ -1,0 +1,40 @@
+# @version ^0.4.0
+# Flash Loan Standard Interfaces (EIP-3156)
+
+interface IERC3156FlashBorrower:
+    def onFlashLoan(
+        initiator: address,
+        token: address,
+        amount: uint256,
+        fee: uint256,
+        data: Bytes[1024]
+    ) -> bytes32: nonpayable
+
+interface IERC3156FlashLender:
+    def maxFlashLoan(token: address) -> uint256: view
+    def flashFee(token: address, amount: uint256) -> uint256: view
+    def flashLoan(
+        receiver: address,
+        token: address,
+        amount: uint256,
+        data: Bytes[1024]
+    ) -> bool: nonpayable
+
+@view
+@external
+def maxFlashLoan(token: address) -> uint256:
+    ...
+
+@view
+@external
+def flashFee(token: address, amount: uint256) -> uint256:
+    ...
+
+@external
+def flashLoan(
+    receiver: address,
+    token: address,
+    amount: uint256,
+    data: Bytes[1024]
+) -> bool:
+    ...
