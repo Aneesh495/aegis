@@ -1,0 +1,51 @@
+# @version ^0.4.0
+# Aegis Dynamic Margin and Risk Engine Interface
+
+@view
+@external
+def compute_account_health(account: address) -> uint256:
+    ...
+
+@view
+@external
+def compute_account_equity(account: address) -> (int256, uint256, uint256):
+    ...
+
+@view
+@external
+def get_collateral_haircut(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def get_liquidation_threshold(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def get_borrow_factor(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def is_account_liquidatable(account: address) -> bool:
+    ...
+
+@view
+@external
+def validate_credit_withdrawal(account: address, asset: address, amount: uint256) -> bool:
+    ...
+
+@view
+@external
+def validate_credit_borrow(account: address, asset: address, amount: uint256) -> bool:
+    ...
+
+@external
+def set_asset_risk_parameters(
+    asset: address,
+    haircut_wad: uint256,
+    liquidation_threshold_wad: uint256,
+    borrow_factor_wad: uint256
+):
+    ...
