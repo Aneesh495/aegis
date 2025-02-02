@@ -1,0 +1,62 @@
+# @version ^0.4.0
+# Aegis Credit Manager Interface
+
+@view
+@external
+def get_credit_account(borrower: address) -> address:
+    ...
+
+@view
+@external
+def get_account_owner(account: address) -> address:
+    ...
+
+@view
+@external
+def get_account_debt(account: address, asset: address) -> uint256:
+    ...
+
+@view
+@external
+def is_whitelisted_adapter(adapter: address) -> bool:
+    ...
+
+@external
+def open_credit_account(borrower: address) -> address:
+    ...
+
+@external
+def deposit_collateral(account: address, asset: address, amount: uint256):
+    ...
+
+@external
+def withdraw_collateral(account: address, asset: address, amount: uint256, recipient: address):
+    ...
+
+@external
+def borrow_credit(account: address, asset: address, amount: uint256):
+    ...
+
+@external
+def repay_credit(account: address, asset: address, amount: uint256):
+    ...
+
+@external
+def execute_trade(
+    account: address,
+    adapter: address,
+    asset_in: address,
+    amount_in: uint256,
+    asset_out: address,
+    min_amount_out: uint256,
+    trade_data: Bytes[1024]
+) -> uint256:
+    ...
+
+@external
+def liquidate_account(account: address, liquidator: address) -> bool:
+    ...
+
+@external
+def set_adapter_status(adapter: address, approved: bool):
+    ...

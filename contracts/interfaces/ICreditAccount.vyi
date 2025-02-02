@@ -1,0 +1,29 @@
+# @version ^0.4.0
+# Aegis Credit Account Proxy Interface
+
+@view
+@external
+def credit_manager() -> address:
+    ...
+
+@view
+@external
+def owner() -> address:
+    ...
+
+@view
+@external
+def asset_balance(asset: address) -> uint256:
+    ...
+
+@external
+def execute(target: address, call_data: Bytes[2048], value: uint256) -> Bytes[2048]:
+    ...
+
+@external
+def safe_approve(token: address, spender: address, amount: uint256):
+    ...
+
+@external
+def transfer_asset(token: address, recipient: address, amount: uint256):
+    ...
