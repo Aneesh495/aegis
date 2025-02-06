@@ -1,0 +1,52 @@
+# @version ^0.4.0
+# Aegis Multi-Tranche Debt Engine and Waterfall Accounting Interface
+
+@view
+@external
+def get_utilization_rate(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def get_borrow_rate(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def get_tranche_supply(asset: address, tranche_id: uint256) -> uint256:
+    ...
+
+@view
+@external
+def get_tranche_share_price(asset: address, tranche_id: uint256) -> uint256:
+    ...
+
+@external
+def deposit_tranche(
+    asset: address,
+    tranche_id: uint256,
+    amount: uint256,
+    receiver: address
+) -> uint256:
+    ...
+
+@external
+def withdraw_tranche(
+    asset: address,
+    tranche_id: uint256,
+    shares: uint256,
+    receiver: address
+) -> uint256:
+    ...
+
+@external
+def accrue_interest(asset: address) -> uint256:
+    ...
+
+@external
+def absorb_bad_debt(asset: address, amount: uint256) -> (uint256, uint256, uint256):
+    ...
+
+@external
+def distribute_cashflow(asset: address, amount: uint256):
+    ...
