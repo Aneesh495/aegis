@@ -1,0 +1,43 @@
+# @version ^0.4.0
+# Aegis Continuous Dutch Auction Liquidation Interface
+
+struct Auction:
+    account: address
+    debt_asset: address
+    collateral_asset: address
+    debt_amount: uint256
+    collateral_amount: uint256
+    start_time: uint256
+    duration: uint256
+    start_penalty_wad: uint256
+    min_penalty_wad: uint256
+    settled: bool
+
+@view
+@external
+def get_auction(auction_id: uint256) -> Auction:
+    ...
+
+@view
+@external
+def get_current_penalty(auction_id: uint256) -> uint256:
+    ...
+
+@view
+@external
+def get_collateral_payout(auction_id: uint256, debt_to_cover: uint256) -> uint256:
+    ...
+
+@external
+def start_auction(
+    account: address,
+    debt_asset: address,
+    collateral_asset: address,
+    debt_amount: uint256,
+    collateral_amount: uint256
+) -> uint256:
+    ...
+
+@external
+def bid(auction_id: uint256, debt_to_cover: uint256) -> uint256:
+    ...
