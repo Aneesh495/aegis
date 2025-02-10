@@ -1,0 +1,51 @@
+# @version ^0.4.0
+# Aegis Frequent Batch Auction (FBA) Clearinghouse Interface
+
+struct Order:
+    trader: address
+    base_asset: address
+    quote_asset: address
+    is_buy: bool
+    limit_price_wad: uint256
+    amount: uint256
+    filled: uint256
+    epoch_id: uint256
+    cancelled: bool
+
+@view
+@external
+def current_epoch() -> uint256:
+    ...
+
+@view
+@external
+def epoch_duration() -> uint256:
+    ...
+
+@view
+@external
+def get_order(order_id: uint256) -> Order:
+    ...
+
+@external
+def submit_order(
+    base_asset: address,
+    quote_asset: address,
+    is_buy: bool,
+    limit_price_wad: uint256,
+    amount: uint256
+) -> uint256:
+    ...
+
+@external
+def cancel_order(order_id: uint256):
+    ...
+
+@external
+def clear_epoch(
+    base_asset: address,
+    quote_asset: address,
+    clearing_price_wad: uint256,
+    order_ids: DynArray[uint256, 128]
+) -> (uint256, uint256):
+    ...
