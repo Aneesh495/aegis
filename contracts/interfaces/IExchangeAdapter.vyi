@@ -1,0 +1,23 @@
+# @version ^0.4.0
+# Aegis External Exchange Adapter Interface
+
+@external
+def swap(
+    asset_in: address,
+    amount_in: uint256,
+    asset_out: address,
+    min_amount_out: uint256,
+    recipient: address,
+    trade_data: Bytes[1024]
+) -> uint256:
+    ...
+
+@view
+@external
+def preview_swap(
+    asset_in: address,
+    amount_in: uint256,
+    asset_out: address,
+    trade_data: Bytes[1024]
+) -> uint256:
+    ...

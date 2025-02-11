@@ -1,0 +1,33 @@
+# @version ^0.4.0
+# Aegis Multi-Feed Price Router Interface
+
+@view
+@external
+def get_asset_price(asset: address) -> uint256:
+    ...
+
+@view
+@external
+def get_twap_price(asset: address, interval: uint256) -> uint256:
+    ...
+
+@view
+@external
+def is_price_valid(asset: address) -> bool:
+    ...
+
+@external
+def set_primary_adapter(asset: address, adapter: address):
+    ...
+
+@external
+def set_secondary_adapter(asset: address, adapter: address):
+    ...
+
+@external
+def set_max_deviation_wad(asset: address, max_deviation_wad: uint256):
+    ...
+
+@external
+def update_twap(asset: address):
+    ...
