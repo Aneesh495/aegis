@@ -1,0 +1,20 @@
+# @version ^0.4.0
+# Aegis Protocol Parameters Registry Interface
+
+@view
+@external
+def get_uint_param(param_key: bytes32) -> uint256:
+    ...
+
+@view
+@external
+def get_address_param(param_key: bytes32) -> address:
+    ...
+
+@external
+def set_uint_param(param_key: bytes32, value: uint256):
+    ...
+
+@external
+def set_address_param(param_key: bytes32, value: address):
+    ...

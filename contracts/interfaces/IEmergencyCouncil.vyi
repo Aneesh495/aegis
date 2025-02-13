@@ -1,0 +1,29 @@
+# @version ^0.4.0
+# Aegis Emergency Council and Circuit Breaker Interface
+
+@view
+@external
+def is_paused(feature_id: bytes32) -> bool:
+    ...
+
+@view
+@external
+def is_guardian(account: address) -> bool:
+    ...
+
+@view
+@external
+def timelock_delay() -> uint256:
+    ...
+
+@external
+def pause_feature(feature_id: bytes32):
+    ...
+
+@external
+def unpause_feature(feature_id: bytes32):
+    ...
+
+@external
+def trigger_emergency_shutdown():
+    ...
