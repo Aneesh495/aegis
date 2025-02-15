@@ -2,6 +2,9 @@
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.uv]
+package = false
+
 [project]
 name = "aegis"
 version = "0.1.0"
@@ -29,8 +32,8 @@ testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-v --tb=short"
 
-[tool.uv]
-dev-dependencies = [
+[dependency-groups]
+dev = [
     "black>=24.0.0",
     "ruff>=0.3.0",
 ]
