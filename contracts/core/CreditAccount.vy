@@ -13,7 +13,7 @@ owner: public(address)
 
 event Executed:
     target: indexed(address)
-    value: uint256
+    eth_value: uint256
     call_data: Bytes[2048]
 
 event Approved:
@@ -37,12 +37,12 @@ def asset_balance(asset: address) -> uint256:
     return staticcall IERC20(asset).balanceOf(self)
 
 @external
-def execute(target: address, call_data: Bytes[2048], value: uint256) -> Bytes[2048]:
+def execute(target: address, call_data: Bytes[2048], eth_value: uint256) -> Bytes[2048]:
     assert msg.sender == self.credit_manager, "CreditAccount: only credit manager"
     assert target != empty(address), "CreditAccount: zero target"
 
-    res: Bytes[2048] = raw_call(target, call_data, max_outsize=2048, value=value)
-    log Executed(target=target, value=value, call_data=call_data)
+    res: Bytes[2048] = raw_call(target, call_data, max_outsize=2048, value=eth_value)
+    log Executed(target=target, eth_value=eth_value, call_data=call_data)
     return res
 
 @external

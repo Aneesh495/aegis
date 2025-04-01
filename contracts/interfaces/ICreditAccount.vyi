@@ -17,7 +17,7 @@ def asset_balance(asset: address) -> uint256:
     ...
 
 @external
-def execute(target: address, call_data: Bytes[2048], value: uint256) -> Bytes[2048]:
+def execute(target: address, call_data: Bytes[2048], eth_value: uint256) -> Bytes[2048]:
     ...
 
 @external
