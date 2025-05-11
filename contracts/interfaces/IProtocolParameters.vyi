@@ -12,9 +12,9 @@ def get_address_param(param_key: bytes32) -> address:
     ...
 
 @external
-def set_uint_param(param_key: bytes32, value: uint256):
+def set_uint_param(param_key: bytes32, val: uint256):
     ...
 
 @external
-def set_address_param(param_key: bytes32, value: address):
+def set_address_param(param_key: bytes32, val: address):
     ...
