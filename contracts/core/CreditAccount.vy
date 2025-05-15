@@ -8,6 +8,9 @@
 interface IERC20:
     def balanceOf(account: address) -> uint256: view
 
+interface ICreditManagerAuction:
+    def liquidation_auction() -> address: view
+
 credit_manager: public(address)
 owner: public(address)
 
@@ -62,7 +65,13 @@ def safe_approve(token: address, spender: address, amount: uint256):
 
 @external
 def transfer_asset(token: address, recipient: address, amount: uint256):
-    assert msg.sender == self.credit_manager, "CreditAccount: only credit manager"
+    is_cm: bool = msg.sender == self.credit_manager
+    is_auction: bool = False
+    if not is_cm and self.credit_manager != empty(address):
+        auc: address = staticcall ICreditManagerAuction(self.credit_manager).liquidation_auction()
+        is_auction = msg.sender == auc
+
+    assert is_cm or is_auction, "CreditAccount: unauthorized"
     assert recipient != empty(address), "CreditAccount: zero recipient"
 
     call_data: Bytes[68] = concat(
