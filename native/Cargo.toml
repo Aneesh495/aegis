@@ -1,0 +1,13 @@
+[package]
+name = "aegis-native"
+version = "0.1.0"
+edition = "2021"
+authors = ["Aneesh Krishna <aneeshkrishnaparthasarathy@gmail.com>"]
+description = "High-performance batch auction crossing and uniform clearing price solver for Aegis"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
