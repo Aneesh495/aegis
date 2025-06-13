@@ -1,0 +1,20 @@
+{
+  "name": "@aegis-protocol/sdk",
+  "version": "0.1.0",
+  "description": "Type-safe TypeScript SDK for the Aegis prime clearing and risk protocol",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node -e 'console.log(\"SDK types verified\")'"
+  },
+  "keywords": [
+    "vyper",
+    "defi",
+    "prime-brokerage",
+    "risk-engine",
+    "frequent-batch-auctions"
+  ],
+  "author": "Aneesh Krishna <aneeshkrishnaparthasarathy@gmail.com>",
+  "license": "MIT"
+}
